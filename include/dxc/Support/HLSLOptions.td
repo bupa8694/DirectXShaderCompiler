@@ -292,6 +292,8 @@ def fvk_use_dx_layout: Flag<["-"], "fvk-use-dx-layout">, Group<spirv_Group>, Fla
   HelpText<"Use DirectX memory layout for Vulkan resources">;
 def fvk_use_scalar_layout: Flag<["-"], "fvk-use-scalar-layout">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
   HelpText<"Use scalar memory layout for Vulkan resources">;
+def fvk_ue4_layout: Flag<["-"], "fvk-ue4-layout">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
+  HelpText<"Use a memory layout for Vulkan resources that matches what UE4 expects">;
 def fspv_reflect: Flag<["-"], "fspv-reflect">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
   HelpText<"Emit additional SPIR-V instructions to aid reflection">;
 def fspv_debug_EQ : Joined<["-"], "fspv-debug=">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,

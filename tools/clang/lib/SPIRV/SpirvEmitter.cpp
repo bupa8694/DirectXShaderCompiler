@@ -213,6 +213,9 @@ bool spirvToolsValidate(spv_target_env env, const SpirvCodeGenOptions &opts,
     options.SetScalarBlockLayout(true);
   } else if (opts.useGlLayout) {
     // spirv-val by default checks this.
+  } else if (opts.ue4Layout) {
+    options.SetRelaxBlockLayout(true);
+    options.SetUniformBufferStandardLayout(true);
   } else {
     options.SetRelaxBlockLayout(true);
   }
@@ -525,6 +528,11 @@ SpirvEmitter::SpirvEmitter(CompilerInstance &ci)
     spirvOptions.tBufferLayoutRule = SpirvLayoutRule::Scalar;
     spirvOptions.sBufferLayoutRule = SpirvLayoutRule::Scalar;
     spirvOptions.ampPayloadLayoutRule = SpirvLayoutRule::Scalar;
+  } else if (spirvOptions.ue4Layout) {
+    spirvOptions.cBufferLayoutRule = SpirvLayoutRule::RelaxedGLSLStd430;
+    spirvOptions.tBufferLayoutRule = SpirvLayoutRule::RelaxedGLSLStd430;
+    spirvOptions.sBufferLayoutRule = SpirvLayoutRule::RelaxedGLSLStd430;
+    spirvOptions.ampPayloadLayoutRule = SpirvLayoutRule::RelaxedGLSLStd430;
   } else {
     spirvOptions.cBufferLayoutRule = SpirvLayoutRule::RelaxedGLSLStd140;
     spirvOptions.tBufferLayoutRule = SpirvLayoutRule::RelaxedGLSLStd430;
