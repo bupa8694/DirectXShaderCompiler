@@ -46,6 +46,7 @@ enum class Extension {
   GOOGLE_user_type,
   NV_ray_tracing,
   NV_mesh_shader,
+  KHR_uniform_buffer_standard_layout,
   Unknown,
 };
 

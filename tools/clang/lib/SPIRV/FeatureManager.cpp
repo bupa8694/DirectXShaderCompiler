@@ -127,6 +127,7 @@ Extension FeatureManager::getExtensionSymbol(llvm::StringRef name) {
       .Case("SPV_KHR_post_depth_coverage", Extension::KHR_post_depth_coverage)
       .Case("SPV_NV_ray_tracing", Extension::NV_ray_tracing)
       .Case("SPV_NV_mesh_shader", Extension::NV_mesh_shader)
+      .Case("SPV_KHR_uniform_buffer_standard_layout", Extension::KHR_uniform_buffer_standard_layout)
       .Default(Extension::Unknown);
 }
 
@@ -168,6 +169,8 @@ const char *FeatureManager::getExtensionName(Extension symbol) {
     return "SPV_NV_ray_tracing";
   case Extension::NV_mesh_shader:
     return "SPV_NV_mesh_shader";
+  case Extension::KHR_uniform_buffer_standard_layout:
+    return "SPV_KHR_uniform_buffer_standard_layout";
   default:
     break;
   }
