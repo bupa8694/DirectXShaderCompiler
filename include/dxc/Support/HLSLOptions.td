@@ -296,6 +296,10 @@ def fvk_ue4_layout: Flag<["-"], "fvk-ue4-layout">, Group<spirv_Group>, Flags<[Co
   HelpText<"Use a memory layout for Vulkan resources that matches what UE4 expects">;
 def fspv_reflect: Flag<["-"], "fspv-reflect">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
   HelpText<"Emit additional SPIR-V instructions to aid reflection">;
+// UE Change Begin: Implement a fused-multiply-add pass to reduce the possibility of reassociation.
+def fspv_fusemuladd: Flag<["-"], "fspv-fusemuladd">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
+  HelpText<"Fuse all floating-point multiply-add pairs to prevent reassociation of floating point instructions.">;
+// UE Change End: Implement a fused-multiply-add pass to reduce the possibility of reassociation.
 def fspv_debug_EQ : Joined<["-"], "fspv-debug=">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
   HelpText<"Specify whitelist of debug info category (file -> source -> line, tool)">;
 def fspv_extension_EQ : Joined<["-"], "fspv-extension=">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
