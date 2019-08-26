@@ -802,7 +802,7 @@ SpirvVariable *DeclResultIdMapper::createStructOrStructArrayVarOfExplicitLayout(
   // Register the <type-id> for this decl
   ctBufferPCTypes[decl] = resultType;
 
-  const auto sc = forPC ? spv::StorageClass::PushConstant
+  const auto sc = (forPC || (spirvOptions.globalsAsPushConstants && forGlobals)) ? spv::StorageClass::PushConstant
                         : forShaderRecordNV
                               ? spv::StorageClass::ShaderRecordBufferNV
                               : spv::StorageClass::Uniform;

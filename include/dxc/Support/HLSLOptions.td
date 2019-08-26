@@ -294,6 +294,8 @@ def fvk_use_scalar_layout: Flag<["-"], "fvk-use-scalar-layout">, Group<spirv_Gro
   HelpText<"Use scalar memory layout for Vulkan resources">;
 def fvk_ue4_layout: Flag<["-"], "fvk-ue4-layout">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
   HelpText<"Use a memory layout for Vulkan resources that matches what UE4 expects">;
+def fvk_globals_push_constants: Flag<["-"], "fvk-globals-push-constants">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
+  HelpText<"Emit global parameters as push-constants not as a uniform buffer block">;
 def fspv_reflect: Flag<["-"], "fspv-reflect">, Group<spirv_Group>, Flags<[CoreOption, DriverOption]>,
   HelpText<"Emit additional SPIR-V instructions to aid reflection">;
 // UE Change Begin: Implement a fused-multiply-add pass to reduce the possibility of reassociation.
