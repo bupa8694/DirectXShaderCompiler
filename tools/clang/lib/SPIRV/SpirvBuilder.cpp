@@ -1522,6 +1522,12 @@ std::vector<uint32_t> SpirvBuilder::takeModule() {
                                                     spirvOptions);
   EmitVisitor emitVisitor(astContext, context, spirvOptions);
 
+  // UE Change Begin: Ensure "GLSL.std.450" instruction set is included;
+  // required for fuse-multiply-add pass.
+  getExtInstSet("GLSL.std.450");
+  // UE Change End: Ensure "GLSL.std.450" instruction set is included;
+  // required for fuse-multiply-add pass.
+
   mod->invokeVisitor(&literalTypeVisitor, true);
 
   // Propagate NonUniform decorations
